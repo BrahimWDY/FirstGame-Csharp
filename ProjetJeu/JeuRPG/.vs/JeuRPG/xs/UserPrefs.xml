@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{49786242-3371-4E4C-8B11-2125B44E1D21}|Default">
+  <MonoDevelop.Ide.ItemProperties.JeuRPG PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="JeuRPG/HeroRPG.cs">
+    <Files>
+      <File FileName="JeuRPG/Program.cs" Line="10" Column="29" />
+      <File FileName="JeuRPG/HeroRPG.cs" Line="9" Column="1" />
+      <File FileName="JeuRPG/Histoire.cs" Line="69" Column="27" />
+      <File FileName="JeuRPG/Monstre.cs" Line="8" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
