@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/brahim/Projects/Rpgtext1/Rpgtext1/GameRPG.csproj",
+      "projectUniqueName": "/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/GameRPG.csproj",
       "projectName": "GameRPG",
-      "projectPath": "/Users/brahim/Projects/Rpgtext1/Rpgtext1/GameRPG.csproj",
+      "projectPath": "/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/GameRPG.csproj",
       "packagesPath": "/Users/brahim/.nuget/packages/",
-      "outputPath": "/Users/brahim/Projects/Rpgtext1/Rpgtext1/obj",
+      "outputPath": "/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

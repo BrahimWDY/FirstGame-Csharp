@@ -1,0 +1,11 @@
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/bin/Debug/netcoreapp2.1/GameRPG.deps.json
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/bin/Debug/netcoreapp2.1/GameRPG.runtimeconfig.json
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/bin/Debug/netcoreapp2.1/GameRPG.runtimeconfig.dev.json
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/bin/Debug/netcoreapp2.1/GameRPG.dll
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/bin/Debug/netcoreapp2.1/GameRPG.pdb
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/obj/Debug/netcoreapp2.1/GameRPG.csprojAssemblyReference.cache
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/obj/Debug/netcoreapp2.1/GameRPG.csproj.CoreCompileInputs.cache
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/obj/Debug/netcoreapp2.1/GameRPG.AssemblyInfoInputs.cache
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/obj/Debug/netcoreapp2.1/GameRPG.AssemblyInfo.cs
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/obj/Debug/netcoreapp2.1/GameRPG.dll
+/Users/brahim/Documents/C#/FirstGame-Csharp/GameRPG/Rpgtext1/obj/Debug/netcoreapp2.1/GameRPG.pdb
