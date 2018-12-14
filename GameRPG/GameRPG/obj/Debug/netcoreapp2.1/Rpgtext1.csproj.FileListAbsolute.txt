@@ -1,0 +1,11 @@
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/obj/Debug/netcoreapp2.1/Rpgtext1.csprojAssemblyReference.cache
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/obj/Debug/netcoreapp2.1/Rpgtext1.csproj.CoreCompileInputs.cache
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/obj/Debug/netcoreapp2.1/Rpgtext1.AssemblyInfoInputs.cache
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/obj/Debug/netcoreapp2.1/Rpgtext1.AssemblyInfo.cs
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/bin/Debug/netcoreapp2.1/Rpgtext1.deps.json
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/bin/Debug/netcoreapp2.1/Rpgtext1.runtimeconfig.json
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/bin/Debug/netcoreapp2.1/Rpgtext1.runtimeconfig.dev.json
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/bin/Debug/netcoreapp2.1/Rpgtext1.dll
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/bin/Debug/netcoreapp2.1/Rpgtext1.pdb
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/obj/Debug/netcoreapp2.1/Rpgtext1.dll
+/Users/brahim/Projects/Rpgtext1/Rpgtext1/obj/Debug/netcoreapp2.1/Rpgtext1.pdb
