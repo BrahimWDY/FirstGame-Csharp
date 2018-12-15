@@ -7,8 +7,8 @@ namespace GameRPG.Equipement
         public PotionType Type;
 
 
-        public Potion(string name, string descript, float v, float w, PotionType t)
-            : base(name, descript, v, w)
+        public Potion(string name, string descript, float v, PotionType t)
+            : base(name, descript, v)
 
         {
             Type = t;
@@ -25,7 +25,7 @@ namespace GameRPG.Equipement
         public override void Use()
         {
             base.Use();
-            Console.WriteLine("Vous avez utilisé une confiserie");
+            Console.WriteLine("Vous avez mangé une confiserie");
         }
     }
 }

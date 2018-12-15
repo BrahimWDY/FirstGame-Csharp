@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using GameRPG.Equipement;
 using GameRPG.Personnages;
 
 namespace GameRPG
@@ -87,63 +88,16 @@ namespace GameRPG
 
             }
 
+            // j'instencie ma map 
+            Map map = new Map();
+
             // on instancie l'objet player (Nom, point d'attaque, point de vie)
             Player player = new Player(NameHero, 5, 20);
 
+            // On met le joueur dans la map
+            map.SpawnPlayer(player);
 
-            Console.WriteLine(@"                                  .M
-                                .:AMMO:
-                       .:AMMMMMHIIIHMMM.
-             ....   .AMMMMMMMMMMMHHHMHHMMMML:AMF""
-           .:MMMMMLAMMMMMMMHMMMMMMHHIHHIIIHMMMML.
-                ""WMMMMMMMMMMMMMMMMMMH:::::HMMMMMMHII:.
-           .AMMMMMMMHHHMMMMMMMMMMHHHHHMMMMMMMMMAMMMHHHHL.
-         .MMMMMMMMMMHHMMMMMMMMHHHHMMMMMMMMMMMMMHTWMHHHHHML
-        .MMMMMMMMMMMMMMMMMMMHHHHHHHHHMHMMHHHHIII:::HMHHHHMM.
-        .MMMMMMMMMMMMMMMMMMMMMMHHHHHHMHHHHHHIIIIIIIIHMHHHHHM.
-        MMMMMMMMMMMMMMMMMHHMMHHHHHIIIHHH::IIHHII:::::IHHHHHHHL
-        ""MMMMMMMMMMMMMMMMHIIIHMMMMHHIIHHLI::IIHHHHIIIHHHHHHHHML
-         .MMMMMMMMMMMMMM""WMMMHHHMMMMMMMMMMMLHHHMMMMMMHHHHHHHHHHH
-        .MMMMMMMMMMMWWMW   """"YYHMMMMMMMMMMMMF""""HMMMMMMMMMHHHHHHHH.
-       .MMMMMMMMMM W"" V                         W""WMMMMMHHHHHHHHHH
-      ""MMMMMMMMMM"".                                 ""WHHHMH""HHHHHHL
-      MMMMMMMMMMF  .                                         IHHHHH.
-      MMMMMMMMMM .                                  .        HHHHHHH
-      MMMMMMMMMF. .                               .  .       HHHHHHH.
-      MMMMMMMMM .     ,AWMMMMML.              ..    .  .     HHHHHHH.
-    :MMMMMMMMM"".  .  F""'    'WM:.         ,::HMMA, .  .      HHHHMMM
-    :MMMMMMMMF.  . .""         WH..      AMM""'     ""  .  .    HHHMMMM
-     MMMMMMMM . .     ,;AAAHHWL""..     .:'                   HHHHHHH
-     MMMMMMM:. . .   -MK""OTO L :I..    ...:HMA-.             ""HHHHHH
-,:IIIILTMMMMI::.      L,,,,.  ::I..    .. K""OTO""ML           'HHHHHH
-LHT::LIIIIMMI::. .      '""""'.IHH:..    .. :.,,,,           '  HMMMH: HLI'
-ILTT::""IIITMII::.  .         .IIII.     . '""""""""             ' MMMFT:::.
-HML:::WMIINMHI:::.. .          .:I.     .   . .  .        '  .M""'.....I.
-""HWHINWI:.'.HHII::..          .HHI     .II.    .  .      . . :M.',, ..I:
- ""MLI""ML': :HHII::...        MMHHL     :::::  . :..      .'.'.'HHTML.II:
-  ""MMLIHHWL:IHHII::....:I:"" :MHHWHI:...:W,,""  '':::.      ..'  "":.HH:II:
-    ""MMMHITIIHHH:::::IWF""    """"""T99""'  '""""    '.':II:..'.'..'  I'.HHIHI'
-      YMMHII:IHHHH:::IT..     . .   ...  . .    ''THHI::.'.' .;H."""".""H""
-        HHII:MHHI""::IWWL     . .     .    .  .     HH""HHHIIHHH"":HWWM""
-         """""" MMHI::HY""""ML,          ...     . ..  :""  :HIIIIIILTMH""
-              MMHI:.'    'HL,,,,,,,,..,,,......,:"" . ''::HH ""HWW
-              'MMH:..   . 'MMML,: """"""MM""""""""MMM""      .'.IH'""MH""
-               ""MMHL..   .. ""MMMMMML,MM,HMMMF    .   .IHM""
-                 ""MMHHL    .. ""MMMMMMMMMMMM""  . .  '.IHF'
-                   'MMMML    .. ""MMMMMMMM""  .     .'HMF
-                    HHHMML.                    .'MMF""
-                   IHHHHHMML.               .'HMF""
-                   HHHHHHITMML.           .'IF..
-                   ""HHHHHHIITML,.       ..:F...
-                    'HHHHHHHHHMMWWWWWW::""......
-                      HHHHHHHMMMMMMF""'........
-                       HHHHHHHHHH............
-                         HHHHHHHH...........
-                          HHHHIII..........
-                           HHIII..........
-                            HII.........
-                             ""H........
-                               ......");
+            Console.Clear();
 
             // on affiche les informations concernant le joueur
             Console.WriteLine("\n================================");
@@ -155,8 +109,6 @@ HML:::WMIINMHI:::.. .          .:I.     .   . .  .        '  .M""'.....I.
             Console.WriteLine("Votre force est de : " + player.Attack);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("================================\n");
-            Thread.Sleep(5000);
-            Console.Clear();
 
             Console.WriteLine(@"         _._._                       _._._
         _|   |_                     _|   |_
@@ -173,17 +125,21 @@ HML:::WMIINMHI:::.. .          .:I.     .   . .  .        '  .M""'.....I.
       ^~^~                                ~^~^
 
 ");
+
+            Console.WriteLine("Synopsis du jeu");
+
+
             //TODO synopsis du jeu 
 
             // Je crée une liste d'ennemi (Nom, point d'attaque, point de vie)
             List<Enemy> ints = new List<Enemy>();
 
             // je crée les différents ennemis 
-            Enemy enemy = new Enemy("Lucas Le charo 1", 5, 15);
-            Enemy enemy1 = new Enemy("Jean Potter", 3, 9);
-            Enemy enemy2 = new Enemy("Sarazin", 4, 11);
-            Enemy enemy3 = new Enemy("Macron", 7, 18);
-            Enemy enemy4 = new Enemy("Chuck Nouris", 9, 22);
+            Enemy enemy = new Enemy("Kim", 5, 15);
+            Enemy enemy1 = new Enemy("Sumeet", 3, 9);
+            Enemy enemy2 = new Enemy("Woody", 4, 11);
+            Enemy enemy3 = new Enemy("Manu Garnier", 7, 18);
+            Enemy enemy4 = new Enemy("Charif", 9, 22);
             Enemy enemy5 = new Enemy("Alexandra La BOSSFINAL", 10, 50);
 
             // et j'ajoute les ennemis 
@@ -194,11 +150,31 @@ HML:::WMIINMHI:::.. .          .:I.     .   . .  .        '  .M""'.....I.
             ints.Add(enemy4);
             ints.Add(enemy5);
 
+
+            // Tableau d'information du PNJ 
+
+            string[] infos = new string[3] {"Il faudra battre Alexandra la BOSSFINAL pour pécho ta crush !", "Tu deviendra plus fort en combattant t'es concurrents.", "Alexandra se trouve dans le souk."};
+
+
+            //Tableau potion du PNJ
+
+            // je crée les différents potions
+            Potion potion0 = new Potion("Coca Cola", "Augemente les points d'attaque de +5.", 5, Potion.PotionType.Attack);
+            Potion potion1 = new Potion("Arizona", "Augemente les points d'attaque de +6.", 6, Potion.PotionType.Attack);
+            Potion potion2 = new Potion("Kinder Bueno", "Augemente les points de vie de +6.", 6, Potion.PotionType.Heal);
+            Potion potion3 = new Potion("Cookies", "Augemente les points de vie de +7.", 7, Potion.PotionType.Heal);
+
+            // je les ajoutes a mon tableau 
+            Potion[] potion = new Potion[4] { potion0, potion1, potion2, potion3 };
         }
 
         public void Load()
         {
-
+            Console.WriteLine("Momentanément indisponible...");
+            Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
+            Console.ReadLine();
+            Console.Clear();
+            Menu menu = new Menu();
         }
 
         public void About()
@@ -231,6 +207,11 @@ HML:::WMIINMHI:::.. .          .:I.     .   . .  .        '  .M""'.....I.
 | | | | | | | |   / / | | |  _  /  |  _  /    / / | | | | | | | | 
 | |_| | | |_| |  / /  | | | | \ \  | | \ \   / /  | | | |_| | | | 
 \_____/ \_____/ /_/   |_| |_|  \_\ |_|  \_\ /_/   |_| |_____/ |_| ");
+
+            Console.WriteLine("\n Appuyez sur 'Entrer' pour continuer.");
+            Console.ReadLine();
+            Console.Clear();
+            Menu menu = new Menu();
 
         }
 

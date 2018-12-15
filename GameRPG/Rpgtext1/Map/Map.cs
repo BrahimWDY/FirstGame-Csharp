@@ -27,20 +27,14 @@ namespace GameRPG
                 }
             }
 
-            for (int i = 0; i < 6; i++)
-            {
-                for (int j = 0; j < 6; j++)
-                {
-                    if (Plateau[i, j].Description == "Tu es dans le couloir !")
-                    {
-                        Console.Write("0 |");
-                    }
-                }
-                Console.WriteLine();
-            }
+            
         }
 
-
+        // je crée un fonction qui me permet de faire spawn mon player sur la map
+        public void SpawnPlayer(Player player)
+        {
+            Plateau[0, 0].player = player;
+        }
 
 
         public string GetDescription(int x, int y)

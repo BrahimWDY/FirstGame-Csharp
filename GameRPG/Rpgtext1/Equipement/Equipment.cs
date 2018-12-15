@@ -8,16 +8,14 @@ namespace GameRPG
         public string Name;
         public string Description;
         public float Value;
-        public float Weight;
 
         #endregion
 
-        public Equipment(string name, string descript, float v, float w)
+        public Equipment(string name, string descript, float v)
         {
             Name = name;
             Description = descript;
             Value = v;
-            Weight = w;
         }
 
         // Afficher un objet

@@ -29,7 +29,7 @@ namespace GameRPG
             // recuperer le prochain chiffre random et je fais %100 pour recuperer un chiffre entre 0 et 100 et si c'est supérieur a 50 = j'ai 50% de chance de trouver une potion 
             if (r.Next() % 100 > 50)
             {
-                Item = new Potion("Soin", "Potion de soin", 1, 2, Potion.PotionType.Heal);
+                Item = new Potion("Soin", "Potion de soin", 1, Potion.PotionType.Heal);
             }
             else
             {
