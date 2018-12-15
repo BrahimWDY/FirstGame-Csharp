@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using GameRPG.Personnages;
 
 namespace GameRPG
@@ -86,25 +87,104 @@ namespace GameRPG
 
             }
 
-            // on instancie l'objet player 
-            Player player = new Player(NameHero, 20);
+            // on instancie l'objet player (Nom, point d'attaque, point de vie)
+            Player player = new Player(NameHero, 5, 20);
 
 
-            // on affiche les informations concernant le joueur 
-            Console.WriteLine("Bonjour " + player.Name + "\n" + "Votre niveau de vie : " + player.Health + " pv");
+            Console.WriteLine(@"                                  .M
+                                .:AMMO:
+                       .:AMMMMMHIIIHMMM.
+             ....   .AMMMMMMMMMMMHHHMHHMMMML:AMF""
+           .:MMMMMLAMMMMMMMHMMMMMMHHIHHIIIHMMMML.
+                ""WMMMMMMMMMMMMMMMMMMH:::::HMMMMMMHII:.
+           .AMMMMMMMHHHMMMMMMMMMMHHHHHMMMMMMMMMAMMMHHHHL.
+         .MMMMMMMMMMHHMMMMMMMMHHHHMMMMMMMMMMMMMHTWMHHHHHML
+        .MMMMMMMMMMMMMMMMMMMHHHHHHHHHMHMMHHHHIII:::HMHHHHMM.
+        .MMMMMMMMMMMMMMMMMMMMMMHHHHHHMHHHHHHIIIIIIIIHMHHHHHM.
+        MMMMMMMMMMMMMMMMMHHMMHHHHHIIIHHH::IIHHII:::::IHHHHHHHL
+        ""MMMMMMMMMMMMMMMMHIIIHMMMMHHIIHHLI::IIHHHHIIIHHHHHHHHML
+         .MMMMMMMMMMMMMM""WMMMHHHMMMMMMMMMMMLHHHMMMMMMHHHHHHHHHHH
+        .MMMMMMMMMMMWWMW   """"YYHMMMMMMMMMMMMF""""HMMMMMMMMMHHHHHHHH.
+       .MMMMMMMMMM W"" V                         W""WMMMMMHHHHHHHHHH
+      ""MMMMMMMMMM"".                                 ""WHHHMH""HHHHHHL
+      MMMMMMMMMMF  .                                         IHHHHH.
+      MMMMMMMMMM .                                  .        HHHHHHH
+      MMMMMMMMMF. .                               .  .       HHHHHHH.
+      MMMMMMMMM .     ,AWMMMMML.              ..    .  .     HHHHHHH.
+    :MMMMMMMMM"".  .  F""'    'WM:.         ,::HMMA, .  .      HHHHMMM
+    :MMMMMMMMF.  . .""         WH..      AMM""'     ""  .  .    HHHMMMM
+     MMMMMMMM . .     ,;AAAHHWL""..     .:'                   HHHHHHH
+     MMMMMMM:. . .   -MK""OTO L :I..    ...:HMA-.             ""HHHHHH
+,:IIIILTMMMMI::.      L,,,,.  ::I..    .. K""OTO""ML           'HHHHHH
+LHT::LIIIIMMI::. .      '""""'.IHH:..    .. :.,,,,           '  HMMMH: HLI'
+ILTT::""IIITMII::.  .         .IIII.     . '""""""""             ' MMMFT:::.
+HML:::WMIINMHI:::.. .          .:I.     .   . .  .        '  .M""'.....I.
+""HWHINWI:.'.HHII::..          .HHI     .II.    .  .      . . :M.',, ..I:
+ ""MLI""ML': :HHII::...        MMHHL     :::::  . :..      .'.'.'HHTML.II:
+  ""MMLIHHWL:IHHII::....:I:"" :MHHWHI:...:W,,""  '':::.      ..'  "":.HH:II:
+    ""MMMHITIIHHH:::::IWF""    """"""T99""'  '""""    '.':II:..'.'..'  I'.HHIHI'
+      YMMHII:IHHHH:::IT..     . .   ...  . .    ''THHI::.'.' .;H."""".""H""
+        HHII:MHHI""::IWWL     . .     .    .  .     HH""HHHIIHHH"":HWWM""
+         """""" MMHI::HY""""ML,          ...     . ..  :""  :HIIIIIILTMH""
+              MMHI:.'    'HL,,,,,,,,..,,,......,:"" . ''::HH ""HWW
+              'MMH:..   . 'MMML,: """"""MM""""""""MMM""      .'.IH'""MH""
+               ""MMHL..   .. ""MMMMMML,MM,HMMMF    .   .IHM""
+                 ""MMHHL    .. ""MMMMMMMMMMMM""  . .  '.IHF'
+                   'MMMML    .. ""MMMMMMMM""  .     .'HMF
+                    HHHMML.                    .'MMF""
+                   IHHHHHMML.               .'HMF""
+                   HHHHHHITMML.           .'IF..
+                   ""HHHHHHIITML,.       ..:F...
+                    'HHHHHHHHHMMWWWWWW::""......
+                      HHHHHHHMMMMMMF""'........
+                       HHHHHHHHHH............
+                         HHHHHHHH...........
+                          HHHHIII..........
+                           HHIII..........
+                            HII.........
+                             ""H........
+                               ......");
 
+            // on affiche les informations concernant le joueur
+            Console.WriteLine("\n================================");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Bonjour " + player.Name);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Votre niveau de vie est de : " + player.Health);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Votre force est de : " + player.Attack);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("================================\n");
+            Thread.Sleep(5000);
+            Console.Clear();
+
+            Console.WriteLine(@"         _._._                       _._._
+        _|   |_                     _|   |_
+        | ... |_._._._._._._._._._._| ... |
+        | ||| |  o YNOV CAMPUS o  | ||| |
+        | """""" |  """"""    """"""    """"""  | """""" |
+   ())  |[-|-]| [-|-]  [-|-]  [-|-] |[-|-]|  ())
+  (())) |     |---------------------|     | (()))
+ (())())| """""" |  """"""    """"""    """"""  | """""" |(())())
+ (()))()|[-|-]|  :::   .-""-.   :::  |[-|-]|(()))()
+ ()))(()|     | |~|~|  |_|_|  |~|~| |     |()))(()
+    ||  |_____|_|_|_|__|_|_|__|_|_|_|_____|  ||
+ ~ ~^^ @@@@@@@@@@@@@@/=======\@@@@@@@@@@@@@@ ^^~ ~
+      ^~^~                                ~^~^
+
+");
             //TODO synopsis du jeu 
 
-            // Je crée une liste d'ennemi
+            // Je crée une liste d'ennemi (Nom, point d'attaque, point de vie)
             List<Enemy> ints = new List<Enemy>();
 
             // je crée les différents ennemis 
-            Enemy enemy = new Enemy("Lucas Le charo 1", 15);
-            Enemy enemy1 = new Enemy("Jean Potter", 9);
-            Enemy enemy2 = new Enemy("Sarazin", 11);
-            Enemy enemy3 = new Enemy("Macron", 18);
-            Enemy enemy4 = new Enemy("Chuck Nouris", 22);
-            Enemy enemy5 = new Enemy("Alexandra La BOSSFINAL", 50);
+            Enemy enemy = new Enemy("Lucas Le charo 1", 5, 15);
+            Enemy enemy1 = new Enemy("Jean Potter", 3, 9);
+            Enemy enemy2 = new Enemy("Sarazin", 4, 11);
+            Enemy enemy3 = new Enemy("Macron", 7, 18);
+            Enemy enemy4 = new Enemy("Chuck Nouris", 9, 22);
+            Enemy enemy5 = new Enemy("Alexandra La BOSSFINAL", 10, 50);
 
             // et j'ajoute les ennemis 
             ints.Add(enemy);
@@ -123,7 +203,35 @@ namespace GameRPG
 
         public void About()
         {
-            Console.WriteLine("Développé par Brahim Ouarradi.");
+            Console.WriteLine(@" _____   _____   _     _   _____   _       _____   _____   _____   _____  
+|  _  \ | ____| | |   / / | ____| | |     /  _  \ |  _  \ |  _  \ | ____| 
+| | | | | |__   | |  / /  | |__   | |     | | | | | |_| | | |_| | | |__   
+| | | | |  __|  | | / /   |  __|  | |     | | | | |  ___/ |  ___/ |  __|  
+| |_| | | |___  | |/ /    | |___  | |___  | |_| | | |     | |     | |___  
+|_____/ |_____| |___/     |_____| |_____| \_____/ |_|     |_|     |_____| ");
+        
+            Console.WriteLine(@" _____       ___   _____   
+|  _  \     /   | |  _  \  
+| |_| |    / /| | | |_| |  
+|  ___/   / / | | |  _  /  
+| |      / /  | | | | \ \  
+|_|     /_/   |_| |_|  \_\ ");
+
+
+            Console.WriteLine(@" _____   _____        ___   _   _   _       ___  ___  
+|  _  \ |  _  \      /   | | | | | | |     /   |/   | 
+| |_| | | |_| |     / /| | | |_| | | |    / /|   /| | 
+|  _  { |  _  /    / / | | |  _  | | |   / / |__/ | | 
+| |_| | | | \ \   / /  | | | | | | | |  / /       | | 
+|_____/ |_|  \_\ /_/   |_| |_| |_| |_| /_/        |_| ");
+
+            Console.WriteLine(@" _____   _   _       ___   _____    _____        ___   _____   _  
+/  _  \ | | | |     /   | |  _  \  |  _  \      /   | |  _  \ | | 
+| | | | | | | |    / /| | | |_| |  | |_| |     / /| | | | | | | | 
+| | | | | | | |   / / | | |  _  /  |  _  /    / / | | | | | | | | 
+| |_| | | |_| |  / /  | | | | \ \  | | \ \   / /  | | | |_| | | | 
+\_____/ \_____/ /_/   |_| |_|  \_\ |_|  \_\ /_/   |_| |_____/ |_| ");
+
         }
 
         public void Quit()

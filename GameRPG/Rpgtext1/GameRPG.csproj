@@ -7,5 +7,7 @@
 
   <ItemGroup>
     <Folder Include="Personnages\" />
+    <Folder Include="Map\" />
+    <Folder Include="Equipement\" />
   </ItemGroup>
 </Project>

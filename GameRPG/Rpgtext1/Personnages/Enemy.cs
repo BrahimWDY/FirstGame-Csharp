@@ -6,10 +6,11 @@ namespace GameRPG.Personnages
 
         #region Constructeur
 
-        public Enemy(string N, int H)
+        public Enemy(string name, int attack, int health)
         {
-            Name = N;
-            Health = H;
+            Name = name;
+            Attack = attack;
+            Health = health;
 
         }
 

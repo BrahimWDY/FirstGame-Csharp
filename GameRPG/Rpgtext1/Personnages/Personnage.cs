@@ -8,8 +8,10 @@ namespace GameRPG
 
         public string Name;
         public int Health;
-
+        public int Attack; 
 
     }
+
+
     
 }

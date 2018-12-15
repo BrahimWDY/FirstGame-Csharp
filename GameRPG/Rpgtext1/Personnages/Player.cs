@@ -4,17 +4,34 @@ namespace GameRPG
    
     public class Player : Personnage
     {
-        #region Constructeur
 
-        public Player(string N, int H)
+
+        public Player(string name, int attack, int health)
         {
-            Name = N;
-            Health = H;
+            Name = name;
+            Attack = attack;
+            Health = health;
 
         }
 
 
+        public void LevelUp()
+        {
+           
 
-        #endregion
+            Console.WriteLine("\n=============================");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("FELICITATION !! VOUS AVEZ PASSE UN NIVEAU ");
+            Console.WriteLine("Attaque + 5                               ");
+            Console.WriteLine("PV + 10                                   ");
+            Console.ResetColor();
+            Console.WriteLine("=============================");
+
+
+            Attack += 5;
+            Health += 10;
+        }
+
     }
 }

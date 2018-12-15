@@ -4,7 +4,7 @@ namespace GameRPG
     public class Game
     {
         public Player player;
-        public Map pateau;
+        //public Map pateau;
 
         public Game()
         {
@@ -14,6 +14,7 @@ namespace GameRPG
         public void StartGame()
         {
             // TODO faire le début du jeu 
+
         }
 
         public void Deplacement()
