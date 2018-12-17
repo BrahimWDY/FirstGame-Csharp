@@ -14,7 +14,7 @@ namespace GameRPG.Equipement
             Type = t;
         }
 
-        // override veut dire je veux pas utiliser PickUp du pere mais celle du fils 
+
         public override void PickUp()
         {
             // base c'est celui du pere 

@@ -49,16 +49,16 @@ namespace GameRPG.Personnages
             if (GiveInfo == true)
             {
                 // je crée un random qui me permettra de retourner une de mes 3 infos dans mon tableau infos
-                Random info = new Random(DateTime.Now.Millisecond);
+                Random info = new Random();
                 int resultRandom;
-                resultRandom = info.Next();
+                resultRandom = info.Next(1,4);
 
                 // Je fais les conditions necessaire pour retourner les infos
-                if (resultRandom % 100 <= 33.33)
+                if (resultRandom == 1 )
                 {
                     return infos[0];
                 }
-                else if (resultRandom % 100 > 33.33 && resultRandom % 100 <= 66.66)
+                else if (resultRandom == 2)
                 {
                     return infos[1];
                 }
@@ -73,21 +73,21 @@ namespace GameRPG.Personnages
             else
             {
                 // je crée un random qui me permettra de retourner une de mes 4 potions de mon tableau
-                Random itemPNJ = new Random(DateTime.Now.Millisecond);
+                Random itemPNJ = new Random();
                 int resultRandom1;
-                resultRandom1 = itemPNJ.Next();
+                resultRandom1 = itemPNJ.Next(1,5);
 
                 // Je fais les conditions necessaire pour retourner les potions 
 
-                if (resultRandom1 % 100 <= 25)
+                if (resultRandom1 == 1)
                 {
                     return potions[1];
                 }
-                else if (resultRandom1 % 100 > 25 && resultRandom1 % 100 <= 50)
+                else if (resultRandom1 == 2)
                 {
                     return potions[2];
                 }
-                else if (resultRandom1 % 100 > 50 && resultRandom1 % 100 <= 75)
+                else if (resultRandom1 == 3)
                 {
                     return potions[3];
                 }

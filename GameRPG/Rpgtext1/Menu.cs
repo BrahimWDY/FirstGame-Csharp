@@ -89,26 +89,40 @@ namespace GameRPG
             }
 
             // j'instencie ma map 
-            Map map = new Map();
+            Map map = new Map(7,7);
 
             // on instancie l'objet player (Nom, point d'attaque, point de vie)
-            Player player = new Player(NameHero, 5, 20);
+            Player player = new Player(NameHero, 5, 20, 1, 1);
 
-            // On met le joueur dans la map
-            map.SpawnPlayer(player);
+
 
             Console.Clear();
 
             // on affiche les informations concernant le joueur
-            Console.WriteLine("\n================================");
+
+            Console.SetCursorPosition(1, 1);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Bonjour " + player.Name);
+            Console.SetCursorPosition(40, 1);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Votre niveau de vie est de : " + player.Health);
+            Console.SetCursorPosition(90, 1);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Votre force est de : " + player.Attack);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("================================\n");
+            Console.WriteLine("\n================================================================================================================\n");
+
+
+            Console.WriteLine("================================================================================================================");
+            Console.SetCursorPosition(50, 7);
+            Console.WriteLine("SYNOPSIS\n");
+            Console.WriteLine("\nVous êtes un étudiant au sein de YNOV CAMPUS. Après plusieurs mois de cours,vous avez un coup de coeur sur \nune fille de votre campus qui s'appelle Léa.");
+            Console.WriteLine("\nMalheureusement elle n'est jamais seule. Elle est toujours accompagnée de sa meilleur amie Alexandra, et parfois \nde ses prétendant.");
+            Console.WriteLine("\nLe but du jeu c'est d'éliminer tout ses prétendants, et battre sa meilleur amie pour atteindre Léa.");
+            Console.WriteLine("\nAméliorez votre force d'attaque en utilisant des boissons et en vainquant vos ennemies.");
+            Console.WriteLine("\nVous pouvez aussi améliorer votre santé ou vous soignez en mangeant des gâteaux.");
+            Console.WriteLine("\nGOOD LUCK!");
+            Console.WriteLine("================================================================================================================");
 
             Console.WriteLine(@"         _._._                       _._._
         _|   |_                     _|   |_
@@ -125,11 +139,12 @@ namespace GameRPG
       ^~^~                                ~^~^
 
 ");
+            // Afficher la map
+            //map.ShowMap(player);
+            // On met le joueur dans la map
+            Map.SpawnPlayer(player, 1, 1);
 
-            Console.WriteLine("Synopsis du jeu");
-
-
-            //TODO synopsis du jeu 
+            player.PlayerMove();
 
             // Je crée une liste d'ennemi (Nom, point d'attaque, point de vie)
             List<Enemy> ints = new List<Enemy>();
@@ -137,7 +152,7 @@ namespace GameRPG
             // je crée les différents ennemis 
             Enemy enemy = new Enemy("Kim", 5, 15);
             Enemy enemy1 = new Enemy("Sumeet", 3, 9);
-            Enemy enemy2 = new Enemy("Woody", 4, 11);
+            Enemy enemy2 = new Enemy("Adrien", 6, 11);
             Enemy enemy3 = new Enemy("Manu Garnier", 7, 18);
             Enemy enemy4 = new Enemy("Charif", 9, 22);
             Enemy enemy5 = new Enemy("Alexandra La BOSSFINAL", 10, 50);
@@ -153,7 +168,7 @@ namespace GameRPG
 
             // Tableau d'information du PNJ 
 
-            string[] infos = new string[3] {"Il faudra battre Alexandra la BOSSFINAL pour pécho ta crush !", "Tu deviendra plus fort en combattant t'es concurrents.", "Alexandra se trouve dans le souk."};
+            string[] infos = new string[3] {"Il faudra battre Alexandra pour atteindre Léa !", "Tu deviendra plus fort en combattant t'es concurrents.", "Alexandra se trouve dans le souk."};
 
 
             //Tableau potion du PNJ
@@ -217,7 +232,7 @@ namespace GameRPG
 
         public void Quit()
         {
-
+            Environment.Exit(0);
         }
 
 

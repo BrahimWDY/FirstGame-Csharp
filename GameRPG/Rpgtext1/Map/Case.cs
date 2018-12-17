@@ -5,7 +5,7 @@ namespace GameRPG
 {
     public class Case
     {
-        public enum CaseType { Couloir, Fika, Souk, Classe };
+        public enum CaseType { Couloir, Fika, Souk, Classe, Mur };
 
         public int X;
         public int Y;
