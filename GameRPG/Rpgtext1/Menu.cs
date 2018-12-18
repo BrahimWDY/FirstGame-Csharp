@@ -56,6 +56,7 @@ namespace GameRPG
 
             int result = int.Parse( Console.ReadLine() );
 
+
             // Il faut faut le choix de l'utilisateur soit entre le min et le max sinon on reste dans la boucle 
             while (result > max || result < min)
             {
@@ -159,31 +160,18 @@ namespace GameRPG
             Console.ReadLine();
             Console.Clear();
 
-            // Afficher la map
-            //Map.ShowMap(player);
-            // On met le joueur dans la map
-            map.SpawnPlayer(player, 1, 1, 0, 0);
-
-            while (true)
-            {
-                Console.WriteLine();
-
-                map.ShowMap(player);
-                player.PlayerMove(map);
-                Console.WriteLine();
-            }
-
+           
 
             // Je crée une liste d'ennemi (Nom, point d'attaque, point de vie)
             List<Enemy> ints = new List<Enemy>();
 
             // je crée les différents ennemis 
-            Enemy enemy = new Enemy("Kim", 5, 15);
-            Enemy enemy1 = new Enemy("Sumeet", 3, 9);
-            Enemy enemy2 = new Enemy("Adrien", 6, 11);
-            Enemy enemy3 = new Enemy("Manu Garnier", 7, 18);
-            Enemy enemy4 = new Enemy("Charif", 9, 22);
-            Enemy enemy5 = new Enemy("Alexandra La BOSSFINAL", 10, 50);
+            Enemy enemy = new Enemy("Kim", 5, 15, 3, 1);
+            Enemy enemy1 = new Enemy("Sumeet", 3, 9, 2, 2);
+            Enemy enemy2 = new Enemy("Adrien", 6, 11, 1, 3);
+            Enemy enemy3 = new Enemy("Manu Garnier", 7, 18, 3, 4);
+            Enemy enemy4 = new Enemy("Charif", 9, 22, 5, 3);
+            Enemy enemy5 = new Enemy("Alexandra La BOSSFINAL", 10, 50, 6, 6);
 
             // et j'ajoute les ennemis 
             ints.Add(enemy);
@@ -192,6 +180,11 @@ namespace GameRPG
             ints.Add(enemy3);
             ints.Add(enemy4);
             ints.Add(enemy5);
+
+            // Spawn ennemies 
+
+            map.SpawnEnemy(enemy, 3, 1);
+            map.SpawnEnemy(enemy1, 2, 2);
 
 
             // Tableau d'information du PNJ 
@@ -209,6 +202,25 @@ namespace GameRPG
 
             // je les ajoutes a mon tableau 
             Potion[] potion = new Potion[4] { potion0, potion1, potion2, potion3 };
+
+
+            // Afficher la map
+            //Map.ShowMap(player);
+            // On met le joueur dans la map
+            map.SpawnPlayer(player, 1, 1, 0, 0);
+
+
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine();
+
+                map.ShowMap(player, enemy);
+                player.PlayerMove(map, enemy);
+                Console.WriteLine();
+
+            }
         }
 
         public void Load()

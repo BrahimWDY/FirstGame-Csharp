@@ -3,15 +3,19 @@ namespace GameRPG.Personnages
 {
     public class PNJ : Personnage
     {
-        private string Information;
+        //private string Information;
         private bool GiveInfo;
         public string[] infos;
         public Equipment[] potions;
+        public int x;
+        public int y;
 
-        public PNJ(string[] info, Equipment[] potions)
+        public PNJ(string[] info, Equipment[] potions, int X, int Y)
         {
             infos = info;
             this.potions = potions;
+            x = X;
+            y = Y;
 
             Random choice = new Random(DateTime.Now.Millisecond);
 

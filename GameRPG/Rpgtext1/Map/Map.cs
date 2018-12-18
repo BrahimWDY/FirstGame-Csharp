@@ -1,4 +1,6 @@
 ﻿using System;
+using GameRPG.Personnages;
+
 namespace GameRPG
 {
     public class Map
@@ -33,9 +35,9 @@ namespace GameRPG
         }
 
         // Je crée une fonction qui me permet de montrer la map et d'afficher le joueur dessus
-        public void ShowMap(Player player)
+        public void ShowMap(Player player, Enemy enemy)
         {
-
+            
             for (int j = 0; j < Longueur; j++)
             {
                 Console.WriteLine();
@@ -52,9 +54,23 @@ namespace GameRPG
                     {
                         Console.Write("[ * ] ");
                     }
+                    else if (Plateau[i, j].enemy == enemy)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("[ E ] ");
+                        Console.ResetColor();
+                    }
 
                 }
             }
+        }
+
+
+        public void SpawnEnemy(Enemy enemy, int x, int y)
+        {
+            enemy.x = x;
+            enemy.y = y;
+            Plateau[x, y].enemy = enemy;
         }
 
         // je crée un fonction qui me permet de faire spawn mon player sur la map
@@ -84,6 +100,8 @@ namespace GameRPG
             }
 
         }
+
+        
 
 
         public string GetDescription(int x, int y)
@@ -116,6 +134,15 @@ namespace GameRPG
             else
             {
                 return true;
+            }
+
+        }
+
+        public void TestCase(Player player, Enemy enemy)
+        {
+            if (player.x == enemy.x && player.y == enemy.y)
+            {
+                Fight.Combat();
             }
 
         }

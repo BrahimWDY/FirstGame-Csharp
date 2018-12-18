@@ -1,5 +1,6 @@
 ﻿using System;
 using GameRPG.Equipement;
+using GameRPG.Personnages;
 
 namespace GameRPG
 {
@@ -12,7 +13,7 @@ namespace GameRPG
         public CaseType Type;
         public string Description;
 
-        // public Enemy e;
+        public Enemy enemy;
         public Equipment Item;
         public Player player;
         //private Potion Item;

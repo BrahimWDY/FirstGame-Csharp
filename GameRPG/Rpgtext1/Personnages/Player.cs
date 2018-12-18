@@ -1,11 +1,11 @@
 ﻿using System;
+using GameRPG.Personnages;
+
 namespace GameRPG
 {
    
     public class Player : Personnage
     {
-        public int x;
-        public int y;
 
         public Map map;
 
@@ -20,7 +20,7 @@ namespace GameRPG
 
 
         // Déplacement du joueur 
-        public void PlayerMove(Map map)
+        public void PlayerMove(Map map, Enemy enemy)
         {
             Console.WriteLine("\n1 - NORD");
             Console.WriteLine("2 - SOUTH");
@@ -33,19 +33,19 @@ namespace GameRPG
             {
 
                 case 1:
-                    North(this, map);
+                    North(this, map, enemy);
                     break;
 
                 case 2:
-                    South(this, map);
+                    South(this, map, enemy);
                     break;
 
                 case 3:
-                    East(this, map);
+                    East(this, map, enemy);
                     break;
 
                 case 4:
-                    West(this, map);
+                    West(this, map, enemy);
                     break;
 
                 default:
@@ -56,32 +56,33 @@ namespace GameRPG
         }
 
         // Aller au nord 
-        public void North(Player player, Map map)
+        public void North(Player player, Map map, Enemy enemy)
         {
             map.SpawnPlayer(player, player.x, player.y - 1, player.x, player.y);
-
+            map.TestCase(player, enemy);
 
         }
 
+
         // aller au sud
-        public void South(Player player, Map map)
+        public void South(Player player, Map map, Enemy enemy)
         {
             map.SpawnPlayer(player, player.x, player.y + 1, player.x, player.y);
-
+            map.TestCase(player, enemy);
         }
 
         // Aller a l'Est
-        public void East(Player player, Map map)
+        public void East(Player player, Map map, Enemy enemy)
         {
            map.SpawnPlayer(player, player.x - 1, player.y, player.x, player.y);
-           
+           map.TestCase(player, enemy);
         }
 
         // Aller a l'ouest
-        public void West(Player player, Map map)
+        public void West(Player player, Map map, Enemy enemy)
         {
             map.SpawnPlayer(player, player.x + 1, player.y, player.x, player.y);
-           
+            map.TestCase(player, enemy);
         }
 
 
