@@ -23,7 +23,7 @@ namespace GameRPG
             {
                 for (int j = 0; j < Longueur; j++)
                 {
-                    Plateau[i, j] = new Case(i, j, Case.CaseType.Mur, "Oops.. Tu ne peux pas traverser le mur !");
+                    Plateau[i, j] = new Case(i, j, Case.CaseType.Mur, "Mur");
                 }
             }
 
@@ -33,8 +33,9 @@ namespace GameRPG
         }
 
         // Je crée une fonction qui me permet de montrer la map et d'afficher le joueur dessus
-        public static void ShowMap(Player player)
+        public void ShowMap(Player player)
         {
+
             for (int j = 0; j < Longueur; j++)
             {
                 Console.WriteLine();
@@ -43,11 +44,13 @@ namespace GameRPG
                 {
                     if (Plateau[i, j].player == player)
                     {
-                        Console.Write("P ");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.Write("[ P ] ");
+                        Console.ResetColor();
                     }
                     else if (Plateau[i, j].Type == Case.CaseType.Mur)
                     {
-                        Console.Write("* ");
+                        Console.Write("[ * ] ");
                     }
 
                 }
@@ -55,14 +58,30 @@ namespace GameRPG
         }
 
         // je crée un fonction qui me permet de faire spawn mon player sur la map
-        public static void SpawnPlayer(Player player, int x, int y)
+        //i et j prennent les valeurs précédentes de x et y
+        public void SpawnPlayer(Player player, int x, int y, int i, int j)
         {
             // notre joueur est placé au coordonnée x, y et on sauvegarde les coprdonnées dans player.x player.y
-            Plateau[x, y].player = player;
-            player.x = x;
-            player.y = y;
+           
 
-            ShowMap(player);
+
+            if (LimitMapX(x) && LimitMapY(y))
+            {
+                player.x = x;
+                player.y = y;
+                Plateau[x, y].player = player;
+                Plateau[i, j] = new Case(i, j, Case.CaseType.Mur, "mur");
+                //ShowMap(player);
+            }
+            else
+            {
+
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Oops.. Tu ne peux pas traverser le mur !");
+                Console.ResetColor();
+              
+            }
 
         }
 
@@ -70,6 +89,35 @@ namespace GameRPG
         public string GetDescription(int x, int y)
         {
             return Plateau[x,y].Description;
+        }
+
+
+        // je fais un teste pour retourner une erreur lorsque mon joueur arrive à la limite de la map 
+        public static bool LimitMapX(int x)
+        {
+            if (x <= 0 || x >= Largeur - 1){
+
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
+
+        }
+
+        public static bool LimitMapY(int y)
+        {
+            if (y <= 0 || y >= Longueur - 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
         }
     }
 }

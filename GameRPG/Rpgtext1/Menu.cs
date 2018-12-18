@@ -53,11 +53,13 @@ namespace GameRPG
         // le choix de l'utilisateur 
         public static int AskChoice(int min, int max)
         {
+
             int result = int.Parse( Console.ReadLine() );
 
             // Il faut faut le choix de l'utilisateur soit entre le min et le max sinon on reste dans la boucle 
             while (result > max || result < min)
             {
+                Console.WriteLine("Entrez une valeur valide : ");
                 result = int.Parse(Console.ReadLine());
             }
             return result;
@@ -100,7 +102,7 @@ namespace GameRPG
 
             // on affiche les informations concernant le joueur
 
-            Console.SetCursorPosition(1, 1);
+            Console.SetCursorPosition(0, 1);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Bonjour " + player.Name);
             Console.SetCursorPosition(40, 1);
@@ -124,6 +126,10 @@ namespace GameRPG
             Console.WriteLine("\nGOOD LUCK!");
             Console.WriteLine("================================================================================================================");
 
+            Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
+            Console.ReadLine();
+            Console.Clear();
+
             Console.WriteLine(@"         _._._                       _._._
         _|   |_                     _|   |_
         | ... |_._._._._._._._._._._| ... |
@@ -139,12 +145,34 @@ namespace GameRPG
       ^~^~                                ~^~^
 
 ");
-            // Afficher la map
-            //map.ShowMap(player);
-            // On met le joueur dans la map
-            Map.SpawnPlayer(player, 1, 1);
+            Console.WriteLine("=================================================");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("Jeudi 20 Décembre 2018 : 8h40...");
+            Console.ResetColor();
+            Console.WriteLine("\nVous êtes à l'entrée du Campus.");
+            Console.WriteLine("Vous avez cours de C# avec Monsieur JANIN Loic.");
+            Console.WriteLine("Allez en salle 407 pour assister au cours.");
+            Console.WriteLine("=================================================\n");
 
-            player.PlayerMove();
+            Console.WriteLine("\nAppuyez sur 'Entrer' pour continuer.");
+            Console.ReadLine();
+            Console.Clear();
+
+            // Afficher la map
+            //Map.ShowMap(player);
+            // On met le joueur dans la map
+            map.SpawnPlayer(player, 1, 1, 0, 0);
+
+            while (true)
+            {
+                Console.WriteLine();
+
+                map.ShowMap(player);
+                player.PlayerMove(map);
+                Console.WriteLine();
+            }
+
 
             // Je crée une liste d'ennemi (Nom, point d'attaque, point de vie)
             List<Enemy> ints = new List<Enemy>();

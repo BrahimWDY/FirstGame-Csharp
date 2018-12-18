@@ -7,6 +7,8 @@ namespace GameRPG
         public int x;
         public int y;
 
+        public Map map;
+
         public Player(string name, int attack, int health, int x, int y)
         {
             Name = name;
@@ -18,12 +20,12 @@ namespace GameRPG
 
 
         // Déplacement du joueur 
-        public void PlayerMove()
+        public void PlayerMove(Map map)
         {
             Console.WriteLine("\n1 - NORD");
             Console.WriteLine("2 - SOUTH");
             Console.WriteLine("3 - EAST");
-            Console.WriteLine("4- WEST");
+            Console.WriteLine("4 - WEST");
 
             int choice = Menu.AskChoice(1,4);
 
@@ -31,19 +33,19 @@ namespace GameRPG
             {
 
                 case 1:
-                    North(this);
+                    North(this, map);
                     break;
 
                 case 2:
-                    South(this);
+                    South(this, map);
                     break;
 
                 case 3:
-                    East(this);
+                    East(this, map);
                     break;
 
                 case 4:
-                    West(this);
+                    West(this, map);
                     break;
 
                 default:
@@ -54,30 +56,32 @@ namespace GameRPG
         }
 
         // Aller au nord 
-        public void North(Player player)
+        public void North(Player player, Map map)
         {
-            Map.SpawnPlayer(player, player.x, player.y - 1);
-            Map.SpawnPlayer(player, player.x, player.y );
+            map.SpawnPlayer(player, player.x, player.y - 1, player.x, player.y);
+
 
         }
 
         // aller au sud
-        public void South(Player player)
+        public void South(Player player, Map map)
         {
-            Map.SpawnPlayer(player, player.x, player.y + 1);
+            map.SpawnPlayer(player, player.x, player.y + 1, player.x, player.y);
 
         }
 
         // Aller a l'Est
-        public void East(Player player)
+        public void East(Player player, Map map)
         {
-            Map.SpawnPlayer(player, player.x - 1, player.y);
+           map.SpawnPlayer(player, player.x - 1, player.y, player.x, player.y);
+           
         }
 
         // Aller a l'ouest
-        public void West(Player player)
+        public void West(Player player, Map map)
         {
-            Map.SpawnPlayer(player, player.x + 1, player.y);
+            map.SpawnPlayer(player, player.x + 1, player.y, player.x, player.y);
+           
         }
 
 

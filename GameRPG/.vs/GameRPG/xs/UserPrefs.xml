@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{DFECD860-6E12-4FEE-A2CD-62230654A53D}|Default">
   <MonoDevelop.Ide.ItemProperties.GameRPG PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Rpgtext1/Fight.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Rpgtext1/Map/Case.cs">
     <Files>
       <File FileName="Rpgtext1/Program.cs" Line="10" Column="1" />
-      <File FileName="Rpgtext1/Menu.cs" Line="143" Column="13" />
+      <File FileName="Rpgtext1/Menu.cs" Line="174" Column="1" />
+      <File FileName="Rpgtext1/Personnages/Player.cs" Line="34" Column="31" />
+      <File FileName="Rpgtext1/Map/Map.cs" Line="97" Column="24" />
       <File FileName="Rpgtext1/Map/Case.cs" Line="8" Column="67" />
-      <File FileName="Rpgtext1/Map/Map.cs" Line="26" Column="112" />
-      <File FileName="Rpgtext1/Personnages/Player.cs" Line="21" Column="13" />
-      <File FileName="Rpgtext1/Fight.cs" Line="6" Column="8" />
+      <File FileName="Rpgtext1/Fight.cs" Line="7" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
