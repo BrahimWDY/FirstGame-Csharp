@@ -7,15 +7,20 @@ namespace GameRPG
 
         public string Name;
         public string Description;
-        public float Value;
+        public int Value;
+        public int x;
+        public int y;
 
         #endregion
 
-        public Equipment(string name, string descript, float v)
+        public Equipment(string name, string descript, int v, int x, int y)
         {
             Name = name;
             Description = descript;
             Value = v;
+            this.x = x;
+            this.y = y;
+
         }
 
         // Afficher un objet

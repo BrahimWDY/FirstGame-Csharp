@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using GameRPG.Equipement;
 using GameRPG.Personnages;
 
 namespace GameRPG
@@ -10,7 +12,7 @@ namespace GameRPG
         public int NbCases;
         public string nom;
         public static Case[,] Plateau;
-       
+
 
 
         public Map(int largeur, int longeur)
@@ -29,7 +31,7 @@ namespace GameRPG
                 }
             }
 
-          
+
 
 
         }
@@ -37,7 +39,7 @@ namespace GameRPG
         // Je crée une fonction qui me permet de montrer la map et d'afficher le joueur dessus
         public void ShowMap(Player player, Enemy enemy)
         {
-            
+
             for (int j = 0; j < Longueur; j++)
             {
                 Console.WriteLine();
@@ -47,20 +49,17 @@ namespace GameRPG
                     if (Plateau[i, j].player == player)
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.Write("[ P ] ");
+                        Console.Write("[ M ] ");
                         Console.ResetColor();
                     }
                     else if (Plateau[i, j].Type == Case.CaseType.Mur)
                     {
                         Console.Write("[ * ] ");
                     }
-                    else if (Plateau[i, j].enemy == enemy)
+                    else if (Plateau[i, j].Type == Case.CaseType.enemy)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("[ E ] ");
-                        Console.ResetColor();
+                        Console.Write("[ * ] ");
                     }
-
                 }
             }
         }
@@ -68,9 +67,31 @@ namespace GameRPG
 
         public void SpawnEnemy(Enemy enemy, int x, int y)
         {
-            enemy.x = x;
-            enemy.y = y;
-            Plateau[x, y].enemy = enemy;
+            if (LimitMapX(x) && LimitMapY(y))
+            {
+                enemy.x = x;
+                enemy.y = y;
+                Plateau[x, y] = new Case(x, y, Case.CaseType.enemy, "mur");
+                Plateau[x, y].enemy = enemy;
+                //ShowMap(player);
+            }
+            else
+            {
+
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Oops.. Tu ne peux pas traverser le mur !");
+                Console.ResetColor();
+
+            }
+
+        }
+
+        public void SpawnPotion(Equipment potion, int x, int y)
+        {
+            potion.x = x;
+            potion.y = y;
+
         }
 
         // je crée un fonction qui me permet de faire spawn mon player sur la map
@@ -78,7 +99,7 @@ namespace GameRPG
         public void SpawnPlayer(Player player, int x, int y, int i, int j)
         {
             // notre joueur est placé au coordonnée x, y et on sauvegarde les coprdonnées dans player.x player.y
-           
+
 
 
             if (LimitMapX(x) && LimitMapY(y))
@@ -96,24 +117,25 @@ namespace GameRPG
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Oops.. Tu ne peux pas traverser le mur !");
                 Console.ResetColor();
-              
+
             }
 
         }
 
-        
 
 
-        public string GetDescription(int x, int y)
-        {
-            return Plateau[x,y].Description;
-        }
+
+        //public string GetDescription(int x, int y)
+        //{
+        //    return Plateau[x,y].Description;
+        //}
 
 
         // je fais un teste pour retourner une erreur lorsque mon joueur arrive à la limite de la map 
         public static bool LimitMapX(int x)
         {
-            if (x <= 0 || x >= Largeur - 1){
+            if (x <= 0 || x >= Largeur - 1)
+            {
 
                 return false;
             }
@@ -138,13 +160,107 @@ namespace GameRPG
 
         }
 
-        public void TestCase(Player player, Enemy enemy)
-        {
-            if (player.x == enemy.x && player.y == enemy.y)
-            {
-                Fight.Combat();
-            }
 
+
+        public void GameMap(Map map, Player player, Enemy enemy, Potion potion)
+        {
+
+            while (true)
+            {
+
+                if (player.x == enemy.x && player.y == enemy.y)
+                {
+                    Console.Clear();
+                    Fight.StartFight(player, enemy, "", map);
+                    break;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine();
+                    player.PlayerStats(player, player.Attack, player.Health);
+                    map.ShowMap(player, enemy);
+                    player.PlayerMove(map, enemy);
+
+                    Console.WriteLine();
+                }
+
+                if (player.x == potion.x && player.y == potion.y)
+                {
+                    Console.WriteLine("Tu as trouvé un {0}", potion.Name);
+                    Console.WriteLine(potion.Description);
+                    Console.WriteLine("\n1 - Consommer");
+                    Console.WriteLine("2 - Ranger dans le sac");
+                    Console.WriteLine("\nVotre choix : ");
+
+                    int choice = Menu.AskChoice(1, 2);
+
+                    switch (choice)
+                    {
+                        case 1:
+                            if (potion.Type == Potion.PotionType.Heal)
+                            {
+                                player.Health += potion.Value;
+                                Console.WriteLine("Votre niveau de vie est de : " + player.Health);
+                                potion = null;
+                                Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
+                                Console.ReadLine();
+                                Console.Clear();
+
+                                while (true)
+                                {
+
+                                    Console.Clear();
+                                    Console.WriteLine();
+                                    player.PlayerStats(player, player.Attack, player.Health);
+                                    map.ShowMap(player, enemy);
+                                    player.PlayerMove(map, enemy);
+
+                                    Console.WriteLine();
+
+                                }
+                            }
+                            else if (potion.Type == Potion.PotionType.Attack)
+                            {
+                                player.Attack += potion.Value;
+                                Console.WriteLine("Votre niveau de force est de : " + player.Attack);
+                                potion = null;
+                                Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
+                                Console.ReadLine();
+                                Console.Clear();
+
+                                while (true)
+                                {
+
+                                    Console.Clear();
+                                    Console.WriteLine();
+                                    player.PlayerStats(player, player.Attack, player.Health);
+                                    map.ShowMap(player, enemy);
+                                    player.PlayerMove(map, enemy);
+
+                                    Console.WriteLine();
+
+                                }
+                            }
+                            break;
+
+                        case 2:
+                            Console.Clear();
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("Tu n'as pas de sac.\n");
+                            Console.ResetColor();
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                }
+
+            }
         }
+
+
     }
 }

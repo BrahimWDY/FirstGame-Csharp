@@ -7,12 +7,14 @@ namespace GameRPG.Equipement
         public PotionType Type;
 
 
-        public Potion(string name, string descript, float v, PotionType t)
-            : base(name, descript, v)
+        public Potion(string name, string descript, int v, PotionType t, int x, int y)
+            : base(name, descript, v, x, y)
 
         {
             Type = t;
         }
+
+      
 
 
         public override void PickUp()

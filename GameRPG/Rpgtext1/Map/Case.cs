@@ -6,7 +6,7 @@ namespace GameRPG
 {
     public class Case
     {
-        public enum CaseType { Couloir, Fika, Souk, Classe, Mur };
+        public enum CaseType { Couloir, Fika, Souk, Classe, Mur, enemy };
 
         public int X;
         public int Y;
@@ -30,7 +30,7 @@ namespace GameRPG
             // recuperer le prochain chiffre random et je fais %100 pour recuperer un chiffre entre 0 et 100 et si c'est supérieur a 50 = j'ai 50% de chance de trouver une potion 
             if (r.Next() % 100 > 50)
             {
-                Item = new Potion("Soin", "Potion de soin", 1, Potion.PotionType.Heal);
+              // Item = new Potion("Soin", "Potion de soin", 1, Potion.PotionType.Heal);
             }
             else
             {
@@ -38,9 +38,6 @@ namespace GameRPG
             }
         }
 
-        public void StartFight()
-        {
-
-        }
+       
     }
 }

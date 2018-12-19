@@ -7,8 +7,6 @@ namespace GameRPG.Personnages
         private bool GiveInfo;
         public string[] infos;
         public Equipment[] potions;
-        public int x;
-        public int y;
 
         public PNJ(string[] info, Equipment[] potions, int X, int Y)
         {

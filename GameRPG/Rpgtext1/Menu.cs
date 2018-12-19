@@ -47,15 +47,14 @@ namespace GameRPG
                 Console.WriteLine("2 - About");
                 Console.WriteLine("3 - Exit\n");
                 
-            
+
         }
 
         // le choix de l'utilisateur 
         public static int AskChoice(int min, int max)
         {
-
+    
             int result = int.Parse( Console.ReadLine() );
-
 
             // Il faut faut le choix de l'utilisateur soit entre le min et le max sinon on reste dans la boucle 
             while (result > max || result < min)
@@ -103,17 +102,7 @@ namespace GameRPG
 
             // on affiche les informations concernant le joueur
 
-            Console.SetCursorPosition(0, 1);
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Bonjour " + player.Name);
-            Console.SetCursorPosition(40, 1);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Votre niveau de vie est de : " + player.Health);
-            Console.SetCursorPosition(90, 1);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Votre force est de : " + player.Attack);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\n================================================================================================================\n");
+            player.PlayerStats(player, player.Attack, player.Health);
 
 
             Console.WriteLine("================================================================================================================");
@@ -166,7 +155,7 @@ namespace GameRPG
             List<Enemy> ints = new List<Enemy>();
 
             // je crée les différents ennemis 
-            Enemy enemy = new Enemy("Kim", 5, 15, 3, 1);
+            Enemy enemy = new Enemy("Kim", 5, 15, 2, 1);
             Enemy enemy1 = new Enemy("Sumeet", 3, 9, 2, 2);
             Enemy enemy2 = new Enemy("Adrien", 6, 11, 1, 3);
             Enemy enemy3 = new Enemy("Manu Garnier", 7, 18, 3, 4);
@@ -183,44 +172,54 @@ namespace GameRPG
 
             // Spawn ennemies 
 
-            map.SpawnEnemy(enemy, 3, 1);
+
+            map.SpawnEnemy(enemy,  2, 1);
             map.SpawnEnemy(enemy1, 2, 2);
+            map.SpawnEnemy(enemy2, 1, 3);
+            map.SpawnEnemy(enemy3, 3, 4);
+            map.SpawnEnemy(enemy4, 5, 3);
+            map.SpawnEnemy(enemy5, 5, 5);
 
 
             // Tableau d'information du PNJ 
 
-            string[] infos = new string[3] {"Il faudra battre Alexandra pour atteindre Léa !", "Tu deviendra plus fort en combattant t'es concurrents.", "Alexandra se trouve dans le souk."};
+            string[] infos = { "Il faudra battre Alexandra pour atteindre Léa !", "Tu deviendra plus fort en combattant t'es concurrents.", "Alexandra se trouve dans le souk." };
 
 
             //Tableau potion du PNJ
 
+            List<Potion> pot = new List<Potion>();
+
             // je crée les différents potions
-            Potion potion0 = new Potion("Coca Cola", "Augemente les points d'attaque de +5.", 5, Potion.PotionType.Attack);
-            Potion potion1 = new Potion("Arizona", "Augemente les points d'attaque de +6.", 6, Potion.PotionType.Attack);
-            Potion potion2 = new Potion("Kinder Bueno", "Augemente les points de vie de +6.", 6, Potion.PotionType.Heal);
-            Potion potion3 = new Potion("Cookies", "Augemente les points de vie de +7.", 7, Potion.PotionType.Heal);
+            Potion potion0 = new Potion("Coca Cola", "Augmente les points d'attaque de +5.", 5, Potion.PotionType.Attack, 1, 2);
+            Potion potion1 = new Potion("Arizona", "Augmente les points d'attaque de +6.", 6, Potion.PotionType.Attack, 5, 1);
+            Potion potion2 = new Potion("Kinder Bueno", "Augmente les points de vie de +6.", 6, Potion.PotionType.Heal, 1, 5);
+            Potion potion3 = new Potion("Cookies", "Augmente les points de vie de +7.", 7, Potion.PotionType.Heal, 4, 4);
+
+            // et j'ajoute les ennemis 
+            pot.Add(potion0);
+            pot.Add(potion1);
+            pot.Add(potion2);
+            pot.Add(potion3);
+
+            //Potion[] potion = { potion0, potion1, potion2, potion3 };
+
+            map.SpawnPotion(potion0, 1, 2);
+            map.SpawnPotion(potion1, 5, 1);
+            map.SpawnPotion(potion2, 1, 5);
+            map.SpawnPotion(potion3, 4, 4);
 
             // je les ajoutes a mon tableau 
-            Potion[] potion = new Potion[4] { potion0, potion1, potion2, potion3 };
+            Potion[] potion = { potion0, potion1, potion2, potion3 };
 
 
-            // Afficher la map
-            //Map.ShowMap(player);
             // On met le joueur dans la map
             map.SpawnPlayer(player, 1, 1, 0, 0);
 
+            // J'affiche la map
 
-
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine();
-
-                map.ShowMap(player, enemy);
-                player.PlayerMove(map, enemy);
-                Console.WriteLine();
-
-            }
+            map.GameMap(map, player, enemy, potion0);
+           
         }
 
         public void Load()
