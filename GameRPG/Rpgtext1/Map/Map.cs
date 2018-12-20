@@ -49,7 +49,7 @@ namespace GameRPG
                     if (Plateau[i, j].player == player)
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.Write("[ M ] ");
+                        Console.Write("[ P ] ");
                         Console.ResetColor();
                     }
                     else if (Plateau[i, j].Type == Case.CaseType.Mur)
@@ -162,29 +162,30 @@ namespace GameRPG
 
 
 
-        public void GameMap(Map map, Player player, Enemy enemy, Potion potion)
+        public void GameMap(Map map, Player player,Enemy enemy, Potion potion)
         {
-
             while (true)
             {
 
-                if (player.x == enemy.x && player.y == enemy.y)
-                {
-                    Console.Clear();
-                    Fight.StartFight(player, enemy, "", map);
-                    break;
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine();
-                    player.PlayerStats(player, player.Attack, player.Health);
-                    map.ShowMap(player, enemy);
-                    player.PlayerMove(map, enemy);
+                    if (player.x == enemy.x && player.y == enemy.y)
+                    {
+                      
+                        Console.Clear();
+                        Fight.StartFight(player, enemy, "", map);
+                        break;
+                    }
+                    else
+                    {
+                        
+                        Console.Clear();
+                        Console.WriteLine();
+                        player.PlayerStats(player, player.Attack, player.Health);
+                        map.ShowMap(player, enemy);
+                        player.PlayerMove(map, enemy);
 
-                    Console.WriteLine();
-                }
-
+                        Console.WriteLine();
+                    }
+                
                 if (player.x == potion.x && player.y == potion.y)
                 {
                     Console.WriteLine("Tu as trouvé un {0}", potion.Name);
@@ -207,18 +208,12 @@ namespace GameRPG
                                 Console.ReadLine();
                                 Console.Clear();
 
-                                while (true)
-                                {
-
-                                    Console.Clear();
-                                    Console.WriteLine();
-                                    player.PlayerStats(player, player.Attack, player.Health);
-                                    map.ShowMap(player, enemy);
-                                    player.PlayerMove(map, enemy);
-
-                                    Console.WriteLine();
-
-                                }
+                                Console.WriteLine("IL EST DEJA 12H45.. C'EST LA FIN DES COURS.");
+                                Console.WriteLine("TU CONTINUERAS TA CONQUETE DES DEMAIN.");
+                                Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
+                                Console.ReadLine();
+                                Console.Clear();
+                                Menu menu = new Menu();
                             }
                             else if (potion.Type == Potion.PotionType.Attack)
                             {
@@ -229,23 +224,17 @@ namespace GameRPG
                                 Console.ReadLine();
                                 Console.Clear();
 
-                                while (true)
-                                {
-
-                                    Console.Clear();
-                                    Console.WriteLine();
-                                    player.PlayerStats(player, player.Attack, player.Health);
-                                    map.ShowMap(player, enemy);
-                                    player.PlayerMove(map, enemy);
-
-                                    Console.WriteLine();
-
-                                }
+                                Console.WriteLine("IL EST DEJA 12H45.. C'EST LA FIN DES COURS.");
+                                Console.WriteLine("TU CONTINUERAS TA CONQUETE DES DEMAIN.");
+                                Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
+                                Console.ReadLine();
+                                Console.Clear();
+                                Menu menu = new Menu();
                             }
                             break;
 
                         case 2:
-                            Console.Clear();
+
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine("Tu n'as pas de sac.\n");
@@ -258,6 +247,7 @@ namespace GameRPG
 
                 }
 
+            
             }
         }
 

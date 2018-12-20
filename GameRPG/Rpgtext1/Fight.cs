@@ -55,18 +55,12 @@ namespace GameRPG
                                 Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
                                 Console.ReadLine();
                                 Console.Clear();
-                                while (true)
-                                {
-                                    Console.Clear();
-                                    Console.WriteLine();
-                                    player.PlayerStats(player, player.Attack, player.Health);
-                                    map.ShowMap(player, enemy);
-                                    player.PlayerMove(map, enemy);
-
-                                    Console.WriteLine();
-                                    
-                                }
-                               
+                                Console.WriteLine("IL EST DEJA 12H45.. C'EST LA FIN DES COURS.");
+                                Console.WriteLine("TU CONTINUERAS TA CONQUETE DES DEMAIN.");
+                                Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
+                                Console.ReadLine();
+                                Console.Clear();
+                                Menu menu = new Menu();
                             }
 
                             PlayerTurn = false;
@@ -105,7 +99,7 @@ namespace GameRPG
                             break;
 
                          case 2:
-                            Console.WriteLine("Vous n'avez aucune potion dans votre inventaire car je l'ai pas créer...");
+                            Console.WriteLine("Vous n'avez aucune potion dans votre sac...");
                             break;
                              
                         case 3:

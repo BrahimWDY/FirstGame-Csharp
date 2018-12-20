@@ -38,8 +38,8 @@ namespace GameRPG
         {
             Console.WriteLine("\n\n1 - NORD");
             Console.WriteLine("2 - SOUTH");
-            Console.WriteLine("3 - EAST");
-            Console.WriteLine("4 - WEST");
+            Console.WriteLine("3 - WEST");
+            Console.WriteLine("4 - EAST");
             Console.WriteLine("\nVotre choix : ");
 
             int choice = Menu.AskChoice(1,4);

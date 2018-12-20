@@ -25,6 +25,7 @@ namespace GameRPG
             Type = t;
             Description = D;
             player = null;
+            /*
             Random r = new Random(DateTime.Now.Millisecond);
 
             // recuperer le prochain chiffre random et je fais %100 pour recuperer un chiffre entre 0 et 100 et si c'est supérieur a 50 = j'ai 50% de chance de trouver une potion 
@@ -35,7 +36,7 @@ namespace GameRPG
             else
             {
                 Item = null;
-            }
+            }*/
         }
 
        

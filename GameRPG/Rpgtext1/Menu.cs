@@ -12,22 +12,22 @@ namespace GameRPG
         public Menu()
         {
             PrintMenu();
-            int choice = AskChoice(0, 3);
+            int choice = AskChoice(1, 4);
             switch (choice)
             {
-                case 0:
+                case 1:
                     StartGame();
                     break;
 
-                case 1:
+                case 2:
                     Load();
                     break;
 
-                case 2:
+                case 3:
                     About();
                     break;
 
-                case 3:
+                case 4:
                     Quit();
                     break;
 
@@ -42,12 +42,10 @@ namespace GameRPG
         public void PrintMenu()
         {
                 Console.WriteLine("========== MENU ==========\n");
-                Console.WriteLine("0 - Create New Game");
-                Console.WriteLine("1 - Load Saved Game");
-                Console.WriteLine("2 - About");
-                Console.WriteLine("3 - Exit\n");
-                
-
+                Console.WriteLine("1 - Create New Game");
+                Console.WriteLine("2 - Load Saved Game");
+                Console.WriteLine("3 - About");
+                Console.WriteLine("4 - Exit\n");
         }
 
         // le choix de l'utilisateur 
@@ -109,11 +107,11 @@ namespace GameRPG
             Console.SetCursorPosition(50, 7);
             Console.WriteLine("SYNOPSIS\n");
             Console.WriteLine("\nVous êtes un étudiant au sein de YNOV CAMPUS. Après plusieurs mois de cours,vous avez un coup de coeur sur \nune fille de votre campus qui s'appelle Léa.");
-            Console.WriteLine("\nMalheureusement elle n'est jamais seule. Elle est toujours accompagnée de sa meilleur amie Alexandra, et parfois \nde ses prétendant.");
+            Console.WriteLine("\nMalheureusement elle n'est jamais seule. Elle est toujours accompagnée de sa meilleur amie Alexia, et parfois \nde ses prétendants.");
             Console.WriteLine("\nLe but du jeu c'est d'éliminer tout ses prétendants, et battre sa meilleur amie pour atteindre Léa.");
             Console.WriteLine("\nAméliorez votre force d'attaque en utilisant des boissons et en vainquant vos ennemies.");
             Console.WriteLine("\nVous pouvez aussi améliorer votre santé ou vous soignez en mangeant des gâteaux.");
-            Console.WriteLine("\nGOOD LUCK!");
+            Console.WriteLine("\nBON JEU!");
             Console.WriteLine("================================================================================================================");
 
             Console.WriteLine("Appuyez sur 'Entrer' pour continuer.");
@@ -143,6 +141,7 @@ namespace GameRPG
             Console.WriteLine("\nVous êtes à l'entrée du Campus.");
             Console.WriteLine("Vous avez cours de C# avec Monsieur JANIN Loic.");
             Console.WriteLine("Allez en salle 407 pour assister au cours.");
+            Console.WriteLine("Elle se trouve à l'EST.");
             Console.WriteLine("=================================================\n");
 
             Console.WriteLine("\nAppuyez sur 'Entrer' pour continuer.");
